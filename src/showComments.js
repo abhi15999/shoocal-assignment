@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {Row,Col,Container} from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 
 export default class showComments extends Component {
@@ -69,17 +72,28 @@ export default class showComments extends Component {
                         <div>
 
                             {data.map(d=>
-                                
-                                <article key={d._id}>
-                                    <h1>{d.name}</h1>
-                                    <p>{d.comment}</p>
-                                    <div>
-                                        <button onClick={()=>this.upvoteHandler(d._id,1)}>Upvote</button>{d.upvotes}
-                                    </div>
-                                    <div>
-                                        <button onClick={()=>this.downvoteHandler(d._id,-1)}>Downvote</button>{d.downvotes}
-                                    </div>
+                                <Container>
+                                <Row>
+                                <article className="commentbox" key={d._id}>
+                                    <Row>
+                                     <Col>   
+                                    <Row>
+                                    <h3 className="commentname">{d.name}</h3>
+                                    </Row>
+                                    <Row>
+                                    <p className="commentbody">{d.comment}</p>
+                                    </Row>
+                                    </Col>
+                                        <Col>
+                                        <button className="upvotebutton" onClick={()=>this.upvoteHandler(d._id,1)}>Upvote</button>{d.upvotes}  
+                                        <button className="downvotebutton" onClick={()=>this.downvoteHandler(d._id,-1)}>Downvote</button>{d.downvotes}
+                                        </Col>
+                                    </Row>
+                                    
                                 </article>
+                                </Row>
+                                <br/>
+                                </Container>
                                 
                                 )}
 

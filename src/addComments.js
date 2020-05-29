@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 export default class addComments extends Component {
@@ -36,15 +38,22 @@ export default class addComments extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.onSubmitHandler}>
-                <label>Enter Name</label>
-                <input onChange={this.nameHandler} value={this.state.name}/><br/>
-                
-                <label>Comment</label>
-                <input onChange={this.commentHandler} value={this.state.comment}/><br/>
-                <button type="submit">Post</button>
-                </form>
+            <div className="container">
+            <form onSubmit={this.onSubmitHandler}>
+               
+                    <div className="row form-group">
+                        <label style={{padding:"10px"}}>Name</label><br/>
+                        <input type="form-control" placeholder="Enter Name" onChange={this.nameHandler} value={this.state.name}/>
+                    </div>
+                    <div className="row form-group">
+                        <label style={{padding:"2px"}}>Comment</label><br/>
+                        <textarea placeholder="Comment" type="form-control" onChange={this.commentHandler} value={this.state.comment}/>
+                    </div>
+                    <div style={{paddingLeft:"20%"}}>
+                        <button className="btn btn-outline-primary btn-lg" type="submit">Submit</button>
+                    </div>
+    
+            </form>
             </div>
         )
     }
